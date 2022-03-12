@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "dev",
+      "site": "dev-ibook-frontend",
       "public": "dist/ibook",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "target": "hml",
+      "site": "hml-ibook-frontend",
       "public": "dist/ibook",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "target": "prod",
+      "site": "ibook-frontend",
       "public": "dist/ibook",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
