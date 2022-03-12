@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ibook-frontend"
+  },
+  "targets": {
+    "ibook-frontend": {
+      "hosting": {
+        "dev": [
+          "dev-ibook-frontend"
+        ]
+      }
+    }
   }
 }

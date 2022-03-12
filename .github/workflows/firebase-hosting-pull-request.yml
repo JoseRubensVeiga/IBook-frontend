@@ -13,10 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      - run: npm run build --configuration=develop
+      if: ${{ github.ref == 'develop' }}
+        - run: npm run build --configuration=develop
+      if: ${{ github.ref == 'homolog' }}
+        - run: npm run build --configuration=homolog
+      if: ${{ github.ref == 'main' }}
+        - run: npm run build --configuration=production
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_IBOOK_FRONTEND }}"
           projectId: ibook-frontend
-          EXTRA_ARGS: "--only hosting:dev-ibook-frontend"
+          target: "--only hosting:dev-ibook-frontend"
