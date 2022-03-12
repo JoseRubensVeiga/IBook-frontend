@@ -1,37 +1,16 @@
 {
-  "hosting": [
-    {
-      "target": "dev",
-      "public": "dist/ibook",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "hml",
-      "public": "dist/ibook",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "prod",
-      "public": "dist/ibook",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "public": "dist/ibook",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }
