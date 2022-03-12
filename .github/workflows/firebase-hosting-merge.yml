@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      run: echo ${{ GITHUB_REF }}
+      run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
       #- run: npm ci && npm run build
       #- uses: FirebaseExtended/action-hosting-deploy@v0
       #  with:
