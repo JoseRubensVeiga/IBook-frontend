@@ -6,15 +6,24 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - develop
+      - homolog
+      - main
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm run build --configuration=develop
+      - run: npm install
+      if: ${{ github.ref == 'develop' }}
+        - run: npm run build --configuration=develop
+      if: ${{ github.ref == 'homolog' }}
+        - run: npm run build --configuration=homolog
+      if: ${{ github.ref == 'main' }}
+        - run: npm run build --configuration=production
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_IBOOK_FRONTEND }}"
           channelId: live
           projectId: ibook-frontend
+          EXTRA_ARGS: "--only hosting:dev-ibook-frontend"
